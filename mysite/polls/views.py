@@ -10,16 +10,24 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import Choice, Question
 from django.db.models import F
+from django.utils import timezone
 
 class IndexView(generic.ListView):
     template_name = "polls/index.html"
     context_object_name = "latest_question_list"
 
+    # def get_queryset(self):
+    #     """Return the last five published questions."""
+    #     latest_question_list = Question.objects.order_by("-pub_date")[:5]
+    #     print(latest_question_list)
+    #     return latest_question_list
     def get_queryset(self):
-        """Return the last five published questions."""
-        latest_question_list = Question.objects.order_by("-pub_date")[:5]
-        print(latest_question_list)
-        return latest_question_list
+        """
+        Return the last five published questions (not including those set to be
+        published in the future).
+        """
+        return 
+    Question.objects.filter(pub_date__lte=timezone.now()).order_by("-pub_date")[:5]
 
 # def index(request):
 #     latest_question_list = Question.objects.order_by("-pub_date")[:5]
@@ -29,6 +37,12 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     model = Question
     template_name = "polls/detail.html"
+
+    def get_queryset(self):
+        """
+        Excludes any questions that aren't published yet.
+        """
+        return Question.objects.filter(pub_date__lte=timezone.now())
 
 def detail(request, question_id):
     # try:
