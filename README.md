@@ -30,3 +30,28 @@ myWeb/
         asgi.py
         wsgi.py
 ```
+
+啟動
+```
+$ cd myWeb
+$ python manage.py runserver
+
+#更換 port
+python manage.py runserver 0.0.0.0:8000
+```
+
+建立新項目
+```
+$ python manage.py startapp polls
+
+polls/
+    __init__.py
+    admin.py
+    apps.py
+    migrations/
+        __init__.py
+    models.py
+    tests.py
+    views.py
+```
+
