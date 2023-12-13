@@ -55,3 +55,19 @@ polls/
     views.py
 ```
 
+TIME_ZONE
+```
+# settings.py
+TIME_ZONE = 'Asia/Taipei'
+```
+
+資料庫配置
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+$ python manage.py migrate
