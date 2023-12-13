@@ -85,5 +85,8 @@ INSTALLED_APPS = [
     .
 ]
 
+# 建立 migrations data
 $ python manage.py makemigrations polls
+
+# add polls/migrations/0001_initial.py
 ```
