@@ -71,3 +71,19 @@ DATABASES = {
 }
 
 $ python manage.py migrate
+
+#  migrate 命令根據 INSTALLED_APPS 配置
+```
+
+建立 polls 資料庫
+```
+# settings.py
+INSTALLED_APPS = [
+    "polls.apps.PollsConfig",
+    .
+    .
+    .
+]
+
+$ python manage.py makemigrations polls
+```
