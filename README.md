@@ -168,3 +168,13 @@ datetime.datetime(2012, 2, 26, 13, 0, 0, 775217, tzinfo=datetime.timezone.utc)
 >>> Question.objects.all()
 <QuerySet [<Question: Question object (1)>]>
 ```
+
+建立管理帳號
+```
+$ python manage.py createsuperuser
+
+Username: admin
+Email address: admin@gmail.com
+Password: 0000
+Password (again): 0000
+```
