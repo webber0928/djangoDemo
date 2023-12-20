@@ -178,3 +178,15 @@ Email address: admin@gmail.com
 Password: 0000
 Password (again): 0000
 ```
+
+## 虛擬環境
+
+建立一個虛擬環境：
+```
+python3 -m venv ~/.virtualenvs/djangodev
+```
+
+啟動它:
+```
+source ~/.virtualenvs/djangodev/bin/activate
+```
